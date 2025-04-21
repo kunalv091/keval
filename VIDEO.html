@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mwdico models <video src=""></video></title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #333;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+        }
+        header {
+            background: linear-gradient(90deg, hsl(0, 0%, 100%), #ffefa7);
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(-100%);
+            animation: slideDown 0.6s forwards ease-out;
+        }
+        .container {
+            max-width: 100%;
+            margin: auto;
+            padding: 20px;
+        }
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background 0.3s;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 0.6s forwards ease-out;
+        }
+        .dark-mode .video-card {
+            background: #333;
+        }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .like-btn, .download-btn {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .like-btn:hover, .download-btn:hover {
+            transform: scale(1.1);
+        }
+        .like-btn { background: red; color: white; }
+        .download-btn { background: green; color: white; }
+        .search-bar {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
+        .theme-toggle {
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 15px;
+            background: #fff;
+            color: #333;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+        }
+        .theme-toggle:hover {
+            transform: rotate(360deg);
+        }
+        .dark-mode .theme-toggle {
+            background: #444;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(50%);
+            animation: fadeInUp 0.6s forwards ease-out;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50%); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="theme-toggle">🌙</button>
+        <h1>MEDTEK🎥</h1>
+        <input type="text" class="search-bar" placeholder="Search Models...">
+    </header>
+    <div class="container">
+        <section id="videos" class="video-gallery">
+            <script>
+                const videoList = [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ];
+                
+                let videoGallery = document.getElementById("videos");
+                videoList.forEach((video, index) => {
+                    let videoCard = document.createElement("div");
+                    videoCard.classList.add("video-card");
+                    videoCard.style.animationDelay = `${index * 0.2}s`;
+                    videoCard.innerHTML = `
+                        <video controls>
+                            <source src="${video}" type="video/mp4">
+                        </video>
+                        <h2>Model video ${index + 1}</h2>
+                        
+                    `;
+                    videoGallery.appendChild(videoCard);
+                });
+            </script>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 MEDTEK. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.querySelector('.theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+        
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+        document.addEventListener("click", function(event) {
+            if (event.target.classList.contains("like-btn")) {
+                event.target.textContent = event.target.textContent === '❤️ Like' ? '💔 Unlike' : '❤️ Like';
+            }
+        });
+    </script>
+</body>
+</html>

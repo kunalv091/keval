@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDICO | The Epitome of Elegance</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: linear-gradient(to right, #ffffff, #ffe091);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #a67c52;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #444;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #a67c52;
+        }
+        .dark-mode-toggle {
+            cursor: pointer;
+            font-size: 20px;
+            padding: 10px;
+            background: #a67c52;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .dark-mode-toggle:hover {
+            background: #80552e;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('pexels-asadphoto-1456291.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+        .hero h1 {
+            font-size: 64px;
+        }
+        .hero p {
+            font-size: 24px;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .collection {
+            padding: 100px 5%;
+            text-align: center;
+            background: #fff;
+            margin: 50px 0;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .item {
+            width: 100%;
+            max-width: 320px;
+            height: 420px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #a67c52;
+            transition: 0.3s;
+        }
+        .item:hover {
+            transform: scale(1.05);
+        }
+       
+
+
+
+
+
+        .item {
+            width: 100%;
+            max-width: 220px;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #a67c52;
+            transition: 0.3s;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .item:hover {
+            transform: scale(1.05);
+        }
+        .item-info {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            width: 100%;
+        }
+        .item-name {
+            font-size: 20px;
+        }
+        .item-price {
+            font-size: 18px;
+            color: #d4af7a;
+        }
+        
+        #threed{
+            width: 1000px;
+            height: 900px;
+            margin-left: 130px;
+            
+        }
+
+        .mri-3d{
+            position: absolute;
+             width: 100%;
+            height: 100%;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">MEDTEK</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="collect2.html">Models</a></li>
+                
+            </ul>
+        </nav>
+        
+            
+      
+        <button class="dark-mode-toggle">🌙</button>
+    </header>
+    
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js" async></script>
+    <spline-viewer class="mri-3d" loading-anim-type="spinner-small-dark" url="https://prod.spline.design/QAc00ZEJG5PQcSpo/scene.splinecode"><img src="data:image/png;base64,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" alt="Spline preview" style="width: 100%; height: 100%;"/></spline-viewer>
+   
+
+    
+
+ 
+</body>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+</html>
